@@ -1,4 +1,5 @@
 name: Sync to Hugging Face hub
+
 on:
   push:
     branches: [main]
@@ -9,12 +10,21 @@ on:
 jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
           lfs: true
-      - name: Push to hub
+
+      - name: Set up Git user
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Pull and push to Hugging Face hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://RohithC07:$HF_TOKEN@huggingface.co/spaces/RohithC07/Math_Solver_llm main
+        run: |
+          git pull https://RohithC07:$HF_TOKEN@huggingface.co/spaces/RohithC07/Math_Solver_llm main --rebase
+          git push https://RohithC07:$HF_TOKEN@huggingface.co/spaces/RohithC07/Math_Solver_llm main
