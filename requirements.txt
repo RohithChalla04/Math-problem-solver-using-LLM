@@ -1,0 +1,14 @@
+langchain
+python-dotenv
+langchain-openai
+beautifulsoup4
+arxiv
+pymupdf
+duckduckgo-search
+wikipedia
+faiss-cpu
+openai
+validators
+youtube_transcript_api
+unstructured
+gradio
