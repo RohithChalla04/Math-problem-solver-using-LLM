@@ -13,3 +13,4 @@ youtube_transcript_api
 unstructured
 gradio
 langchain_groq
+langchain_community
